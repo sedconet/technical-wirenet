@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Manage · WireNet Technical</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <a class="logo" href="/"><span class="mark">W</span> WireNet <small>Technical</small></a>
+  <nav><span id="who" class="who"></span><a href="/">View catalogue</a><button id="logout" type="button">Sign out</button></nav>
+</div></header>
+<main>
+  <div class="tabs" role="tablist">
+    <button role="tab" data-tab="tasks" aria-selected="true">Tasks</button>
+    <button role="tab" data-tab="users" class="admin-only hidden" aria-selected="false">Users</button>
+    <button role="tab" data-tab="audit" class="admin-only hidden" aria-selected="false">Activity log</button>
+    <button role="tab" data-tab="account" aria-selected="false">My account</button>
+  </div>
+
+  <section id="tab-tasks">
+    <form id="task-form" class="panel">
+      <h2 id="task-form-title">Add a completed task</h2>
+      <div class="form-grid">
+        <div class="full"><label for="t-title">Title</label><input id="t-title" maxlength="160" required placeholder="e.g. Campus-wide Wi-Fi 6E upgrade"></div>
+        <div><label for="t-category">Service area</label><select id="t-category" required></select></div>
+        <div><label for="t-date">Completion date</label><input id="t-date" type="date" required></div>
+        <div><label for="t-client">Client (internal)</label><input id="t-client" maxlength="120" placeholder="Only shown if ticked below"></div>
+        <div><label for="t-location">Location</label><input id="t-location" maxlength="120" placeholder="e.g. Dublin 2"></div>
+        <div class="full"><label for="t-summary">Summary of work</label><textarea id="t-summary" rows="4" maxlength="3000" required placeholder="What was delivered, scale, outcome…"></textarea></div>
+        <div class="full"><label for="t-tech">Technologies (comma-separated)</label><input id="t-tech" maxlength="800" placeholder="Cisco Meraki, Cat6A, Fortinet"></div>
+        <div><label class="check"><input id="t-showclient" type="checkbox"> Show client name to viewers (client has approved)</label></div>
+        <div><label class="check"><input id="t-published" type="checkbox" checked> Published (visible in catalogue)</label></div>
+      </div>
+      <div class="actions"><button class="btn primary" type="submit" id="t-save">Add task</button><button class="btn hidden" type="button" id="t-cancel">Cancel edit</button></div>
+    </form>
+    <div class="panel"><h2>All tasks</h2>
+      <table><thead><tr><th>Completed</th><th>Title</th><th>Area</th><th>Status</th><th></th></tr></thead><tbody id="task-rows"></tbody></table>
+    </div>
+  </section>
+
+  <section id="tab-users" class="hidden">
+    <form id="user-form" class="panel">
+      <h2>Invite a user</h2>
+      <p class="fine">Share the temporary password through a separate channel (phone, not email). They must set up an authenticator app on first sign-in. Give prospective customers the <b>Viewer</b> role.</p>
+      <div class="form-grid">
+        <div><label for="u-username">Username</label><input id="u-username" required maxlength="64" placeholder="jane.doe"></div>
+        <div><label for="u-display">Display name</label><input id="u-display" maxlength="100" placeholder="Jane Doe (Acme Ltd)"></div>
+        <div><label for="u-role">Role</label><select id="u-role"><option value="viewer">Viewer: read the catalogue</option><option value="editor">Editor: add and edit tasks</option><option value="admin">Admin: also manage users</option></select></div>
+        <div><label for="u-password">Temporary password</label><input id="u-password" required minlength="12" autocomplete="new-password"></div>
+      </div>
+      <div class="actions"><button class="btn primary" type="submit">Create user</button><button class="btn" type="button" id="u-gen">Generate password</button></div>
+    </form>
+    <div class="panel"><h2>Users</h2>
+      <table><thead><tr><th>User</th><th>Role</th><th>Security</th><th>Last sign-in</th><th></th></tr></thead><tbody id="user-rows"></tbody></table>
+    </div>
+  </section>
+
+  <section id="tab-audit" class="hidden">
+    <div class="panel"><h2>Activity log</h2><p class="fine">Last 200 events.</p>
+      <table><thead><tr><th>When</th><th>User</th><th>Event</th><th>Detail</th><th>IP</th></tr></thead><tbody id="audit-rows"></tbody></table>
+    </div>
+  </section>
+
+  <section id="tab-account" class="hidden">
+    <form id="pw-form" class="panel">
+      <h2>Change password</h2>
+      <p class="fine">At least 12 characters with upper case, lower case and a number. Other sessions will be signed out.</p>
+      <div class="form-grid">
+        <div class="full"><label for="pw-cur">Current password</label><input id="pw-cur" type="password" required autocomplete="current-password"></div>
+        <div><label for="pw-new">New password</label><input id="pw-new" type="password" required minlength="12" autocomplete="new-password"></div>
+        <div><label for="pw-new2">Repeat new password</label><input id="pw-new2" type="password" required minlength="12" autocomplete="new-password"></div>
+      </div>
+      <div class="actions"><button class="btn primary" type="submit">Update password</button></div>
+    </form>
+  </section>
+</main>
+<script src="/assets/common.js"></script>
+<script src="/assets/manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sign in · WireNet Technical</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <aside class="auth-side">
+    <a class="logo" href="/login"><span class="mark">W</span> WireNet <small>Technical</small></a>
+    <div>
+      <h2>Our completed technical work, in one place.</h2>
+      <p>A catalogue of projects delivered by the WireNet technical team, from structured cabling to cloud migrations.</p>
+      <ul>
+        <li>Two-factor sign-in on every account</li>
+        <li>Encrypted connection and short sessions</li>
+        <li>Access by invitation only</li>
+      </ul>
+    </div>
+    <small>technical.wirenet.ie</small>
+  </aside>
+  <section class="auth-main">
+    <div class="auth-card">
+      <!-- Step 1: password -->
+      <form id="f-login" autocomplete="on">
+        <h1>Sign in</h1>
+        <p class="sub">Use the account WireNet set up for you.</p>
+        <label for="username">Username</label>
+        <input id="username" name="username" autocomplete="username" required autofocus>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="btn primary" type="submit">Continue</button>
+      </form>
+      <!-- Step 2: TOTP -->
+      <form id="f-mfa" class="hidden" autocomplete="off">
+        <h1>Two-step verification</h1>
+        <p class="sub">Enter the 6-digit code from your authenticator app.</p>
+        <label for="code">Verification code</label>
+        <input id="code" class="code-input" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required>
+        <button class="btn primary" type="submit">Verify</button>
+      </form>
+      <!-- First sign-in: enrol TOTP -->
+      <form id="f-enroll" class="hidden" autocomplete="off">
+        <h1>Set up two-step verification</h1>
+        <p class="sub">Required for every account. Scan this with Microsoft Authenticator, Google Authenticator, 1Password or similar.</p>
+        <div class="qr"><img id="qr" alt="QR code for authenticator app"><div><div class="fine">Can't scan? Enter this key:</div><div id="secret" class="secret"></div></div></div>
+        <label for="ecode">Code shown in the app</label>
+        <input id="ecode" class="code-input" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required>
+        <button class="btn primary" type="submit">Turn on and sign in</button>
+      </form>
+      <div id="msg" class="alert err hidden" role="alert"></div>
+      <p class="fine">Authorised users only. Sign-in activity is logged.</p>
+    </div>
+  </section>
+</div>
+<script src="/assets/common.js"></script>
+<script src="/assets/login.js"></script>
+</body>
+</html>

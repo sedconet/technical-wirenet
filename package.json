@@ -1,0 +1,25 @@
+{
+  "name": "technical-wirenet",
+  "version": "1.0.0",
+  "description": "WireNet Technical task catalogue",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "create-admin": "node scripts/create-admin.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "argon2": "^0.45.2",
+    "better-sqlite3": "^13.2.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "helmet": "^8.3.0",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.4"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20.12"
+  }
+}

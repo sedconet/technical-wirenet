@@ -1,0 +1,31 @@
+# /etc/systemd/system/technical-wirenet.service
+[Unit]
+Description=WireNet Technical catalogue
+After=network.target
+
+[Service]
+Type=simple
+User=technical
+Group=technical
+WorkingDirectory=/opt/technical-wirenet
+ExecStart=/usr/bin/node src/server.js
+Restart=on-failure
+Environment=NODE_ENV=production
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+ReadWritePaths=/var/lib/technical-wirenet
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target

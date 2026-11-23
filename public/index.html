@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Completed Technical Work · WireNet</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <a class="logo" href="/"><span class="mark">W</span> WireNet <small>Technical</small></a>
+  <nav><span id="who" class="who"></span><a id="nav-manage" class="hidden" href="/manage">Manage</a><button id="print" type="button">Print / PDF</button><button id="logout" type="button">Sign out</button></nav>
+</div></header>
+<section class="hero"><div class="inner">
+  <h1>Completed technical work</h1>
+  <p>A selection of projects and tasks our engineers have delivered for clients across Ireland.</p>
+  <div class="stats">
+    <div class="stat"><b id="s-total">–</b><span>Tasks completed</span></div>
+    <div class="stat"><b id="s-cats">–</b><span>Service areas</span></div>
+    <div class="stat"><b id="s-year">–</b><span id="s-year-l">This year</span></div>
+    <div class="stat"><b id="s-latest">–</b><span>Most recent</span></div>
+  </div>
+</div></section>
+<main>
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Search tasks, technologies, locations…" aria-label="Search">
+    <select id="year" aria-label="Year"><option value="">All years</option></select>
+    <select id="sort" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select>
+  </div>
+  <div id="chips" class="chips" role="group" aria-label="Filter by service area"></div>
+  <div id="list"></div>
+</main>
+<script src="/assets/common.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>
