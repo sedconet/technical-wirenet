@@ -169,7 +169,7 @@ app.post('/api/me/password', S.requireAuth(), async (req, res) => {
 });
 
 // --------------------------------------------------------------- tasks
-const CATEGORIES = (process.env.TASK_CATEGORIES || 'Networking,Structured Cabling,Wireless,Security & CCTV,Cloud & Microsoft 365,Servers & Virtualisation,Cybersecurity,Telephony & VoIP,Support & Maintenance,Other').split(',').map((s) => s.trim());
+const CATEGORIES = (process.env.TASK_CATEGORIES || 'Networking,Network Security,Structured Cabling,Wireless,Security & CCTV,Cloud & Microsoft 365,Servers & Virtualisation,Cybersecurity,Telephony & VoIP,Support & Maintenance,Other').split(',').map((s) => s.trim());
 
 function publicTask(t, role) {
   const out = {
